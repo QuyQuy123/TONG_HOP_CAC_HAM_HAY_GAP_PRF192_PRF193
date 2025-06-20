@@ -177,6 +177,10 @@
 	    33.4. insertElement      => Chèn phần tử vào vị trí bất kỳ.
 	    33.5. deleteElement      => Xoá phần tử tại vị trí bất kỳ.
 	    33.6. removeDuplicates   => Loại bỏ các phần tử trùng lặp.
+	    33.7. swap 				=> Hàm hoán đổi 2 phần tử
+	    33.8. findIndexOfSmallestOdd 		=> Hàm tìm vị trí số lẻ nhỏ nhất
+	    33.9 findIndexOfFirstLargestOdd 	=> Hàm tìm vị trí số lẻ lớn nhất đầu tiên (first largest odd)
+	    
 
 	34. KIỂM TRA THÔNG TIN TRONG MẢNG:
 	    34.1. linearSearch       => Tìm kiếm tuyến tính một phần tử.
@@ -205,6 +209,7 @@
 		35.15 veNgoiNha  => Vẽ ngôi nhà
 		35.16 veHinhThoi   => Vẽ hình thoi
 		35.17 veTamGiacRong  => Vẽ tam giác rỗng
+		35.18 printAlphabetPyramid=>  Vẽ tam giác chữ cái
 
 */
 
@@ -1105,6 +1110,71 @@ int removeDuplicates(int arr[], int n) {
 	return newN; // trả về kích thước mảng mới
 }
 
+//33.7 Hàm hoán đổi 2 phần tử
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+//33.8 Hàm tìm vị trí số lẻ nhỏ nhất
+int findIndexOfSmallestOdd(int arr[], int n) {
+    int minOdd = 0;
+    int minIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 != 0) { // là số lẻ
+            if (minIndex == -1 || arr[i] < minOdd) {
+                minOdd = arr[i];
+                minIndex = i;
+            }
+        }
+    }
+    return minIndex;
+}
+//33.9 Hàm tìm vị trí số lẻ lớn nhất đầu tiên
+int findIndexOfFirstLargestOdd(int arr[], int n) {
+    int maxOdd = 0;
+    int maxIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 != 0) {
+            if (maxIndex == -1 || arr[i] > maxOdd) {
+                maxOdd = arr[i];
+                maxIndex = i;
+            }
+        }
+    }
+    return maxIndex;
+}
+//33.10 Hàm tìm vị trí số chẵn nhỏ nhất
+int findIndexOfSmallestEven(int arr[], int n) {
+    int minEven = 0;
+    int minIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) { // là số chẵn
+            if (minIndex == -1 || arr[i] < minEven) {
+                minEven = arr[i];
+                minIndex = i;
+            }
+        }
+    }
+    return minIndex;
+}
+
+//33.11 Hàm tìm vị trí số chẵn lớn nhất đầu tiên
+int findIndexOfFirstLargestEven(int arr[], int n) {
+    int maxEven = 0;
+    int maxIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) { // là số chẵn
+            if (maxIndex == -1 || arr[i] > maxEven) {
+                maxEven = arr[i];
+                maxIndex = i;
+            }
+        }
+    }
+    return maxIndex;
+}
+
+
 // 34.1 Tìm kiếm tuyến tính
 int linearSearch(int arr[], int n, int key) {
 	for (int i = 0; i < n; i++)
@@ -1361,7 +1431,7 @@ void veTamGiac (int n) {
 	}
 }
 
-// 35.8 Vẽ Tam giác cân 1
+// 35.9 Vẽ Tam giác cân 1
 //       *
 //	    * *
 //     * * *
@@ -1385,7 +1455,7 @@ void tamGiacCan_1 {
         printf("\n");
     }
 }
-// 35.9 Vẽ Tam giác cân 2
+// 35.10 Vẽ Tam giác cân 2
 //* * * * *
 // * * * *
 //  * * *
@@ -1410,7 +1480,7 @@ void tamGiacCan_2  {
     return 0;
 }
 
-// 35.10 Vẽ Tam giác số 1
+// 35.11 Vẽ Tam giác số 1
 
 //1
 //2 3
@@ -1431,7 +1501,7 @@ void tamGiacSo {
     }
 }
 
-// 35.11 Vẽ Tam giác số 2
+// 35.12 Vẽ Tam giác số 2
 //1
 //1 2
 //1 2 3
@@ -1451,7 +1521,7 @@ void tamGiacso_2{
     }
 }
 
-// 35.11 Vẽ Tam giác chữ đối xứng
+// 35.13 Vẽ Tam giác chữ đối xứng
 //A
 //A B A
 //A B C B A
@@ -1473,7 +1543,7 @@ void tamGiacChuDoiXung {
 	printf("\n");
 	}
 }
-// 35.12 Vẽ hình bình hành
+// 35.14 Vẽ hình bình hành
 //	   ******
 //    *    *
 //   *    *
@@ -1499,7 +1569,7 @@ void hinhBinhHanh {
     }
 }
 
-// 35.13 Vẽ ngôi nhà
+// 35.15 Vẽ ngôi nhà
 
 //        *
 //      * * *
@@ -1546,7 +1616,7 @@ void veNgoiNha {
     }
 }
 
-// 35.14 Vẽ hình thoi
+// 35.16 Vẽ hình thoi
 //      *
 //    * * *
 //  * * * * *
@@ -1590,7 +1660,7 @@ void veHinhThoi {
 }
 
 
-// 35.15 Vẽ tam giác rỗng
+// 35.17 Vẽ tam giác rỗng
 //
 //*
 //**
@@ -1614,6 +1684,23 @@ void veTamGiacRong {
         printf("\n");
     }
 
+}
+// 35.18  Vẽ tam giác chữ cái
+
+//A
+//B C
+//D E F
+//G H I J
+
+void printAlphabetPyramid(int rows) {
+    char ch = 'A';
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%c ", ch);
+            ch++;
+        }
+        printf("\n");
+    }
 }
 
 
