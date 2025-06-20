@@ -180,6 +180,9 @@
 	    33.7. swap 				=> Hàm hoán đổi 2 phần tử
 	    33.8. findIndexOfSmallestOdd 		=> Hàm tìm vị trí số lẻ nhỏ nhất
 	    33.9 findIndexOfFirstLargestOdd 	=> Hàm tìm vị trí số lẻ lớn nhất đầu tiên (first largest odd)
+	    33.10 findIndexOfSmallestEven       =>  Hàm tìm vị trí số chẵn nhỏ nhất
+	    33.11 findIndexOfFirstLargestEven   => Hàm tìm vị trí số chẵn lớn nhất đầu tiên
+	    
 	    
 
 	34. KIỂM TRA THÔNG TIN TRONG MẢNG:
