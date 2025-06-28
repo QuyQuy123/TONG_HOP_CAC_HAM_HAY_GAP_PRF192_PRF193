@@ -5,6 +5,8 @@
 #include <ctype.h>
 
 /*
+	0.  isLeapYear					=> Kiểm tra 1 năm có phải năm nhuận hay không
+	0.1 printDaysInMonth            => Liệt kê số ngày trong tháng
     1.  Kiểm tra số nguyên tố        => Kiểm tra 1 số có phải số nguyên tố hay không
     2.  Kiểm tra số Fibonacci        => Kiểm tra 1 số có thuộc dãy Fibonacci hay không
     3.  Ước chung lớn nhất           => Tính ước chung lớn nhất của 2 số a và b
@@ -43,7 +45,8 @@
         25.8  demSoTu              => Đếm số lượng từ trong chuỗi
         25.9  xoaChuoiConDauTien   => Xoá chuỗi con ở vị trí đầu tiên
         25.10 thayTheChuoiCon      => Thay thế các chuỗi con bằng chuỗi con mới
-        25.11 tachChuoiThanhMangTu=> Tách chuỗi thành các mảng từ
+        25.11 tachChuoiThanhMangTu => Tách chuỗi thành các mảng từ
+        25.12 inputString		=> Nhập vào 1 chuỗi kí tự
 
     26. Các thao tác với chữ hoa - thường:
         26.1  chuyenDoiChuHoa      => Chuyển đổi tất cả ký tự thành chữ hoa
@@ -182,6 +185,7 @@
 	    33.9 findIndexOfFirstLargestOdd 	=> Hàm tìm vị trí số lẻ lớn nhất đầu tiên (first largest odd)
 	    33.10 findIndexOfSmallestEven       =>  Hàm tìm vị trí số chẵn nhỏ nhất
 	    33.11 findIndexOfFirstLargestEven   => Hàm tìm vị trí số chẵn lớn nhất đầu tiên
+	    33.12 inputArray                    => Nhập các giá trị cho mảng
 	    
 	    
 
@@ -217,10 +221,40 @@
 */
 
 
+// 0. Kiểm tra 1 năm có phải năm nhuận hay không
+
+int isLeapYear(int year) {
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        return 1; 
+    } else {
+        return 0; 
+    }
+}
 
 
+// 0.1 In ra số ngày trong tháng
 
-
+void printDaysInMonth(int month, int year) {
+    int daysInMonth;
+    switch (month) {
+        case 2:
+            daysInMonth = isLeapYear(year) ? 29 : 28;
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            daysInMonth = 30;
+            break;
+        default:
+            daysInMonth = 31;
+            break;
+    }
+    for (int day = 1; day <= daysInMonth; day++) {
+        printf("%d ", day);
+    }
+    printf("\n");
+}
 
 
 // 1. Kiểm tra số nguyên tố
@@ -545,6 +579,17 @@ int tachChuoiThanhMangTu(const char *str, char arr[][50]) {
 	}
 	return i;  // số lượng từ
 }
+// 25.12 Nhập vào 1 chuỗi kí tự
+void inputString(char s[]) {
+    printf("Enter a string (max 100 characters): ");
+    fgets(s, 101, stdin);
+    if (s[strlen(s) - 1] == '\n') {
+        s[strlen(s) - 1] = '\0';
+    }
+}
+
+
+
 // 26.1 Chuyển tất cả sang chữ hoa
 void chuyenDoiChuHoa(char *str) {
 	for (int i = 0; str[i]; i++)
@@ -1176,6 +1221,15 @@ int findIndexOfFirstLargestEven(int arr[], int n) {
     }
     return maxIndex;
 }
+//33.12 Nhập các giá trị cho mảng
+
+void inputArray(int arr[], int n) {
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+}
+
 
 
 // 34.1 Tìm kiếm tuyến tính
@@ -1343,12 +1397,10 @@ void veHinhVuong (int n) {
 				printf ("* ");
 			}
 		}
-
 		else {
 			printf ("*");
 			for (j=0; j<2*n-3; j++) {
 				printf (" ");
-
 			}
 			printf ("*");
 		}
