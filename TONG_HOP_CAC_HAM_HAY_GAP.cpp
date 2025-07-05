@@ -186,6 +186,7 @@
 	    33.10 findIndexOfSmallestEven       =>  Hàm tìm vị trí số chẵn nhỏ nhất
 	    33.11 findIndexOfFirstLargestEven   => Hàm tìm vị trí số chẵn lớn nhất đầu tiên
 	    33.12 inputArray                    => Nhập các giá trị cho mảng
+	    33.13 check_duplicate 				=> Kiểm tra các phần tử trong arr có trùng nhau hay không
 	    
 	    
 
@@ -230,7 +231,6 @@ int isLeapYear(int year) {
         return 0; 
     }
 }
-
 
 // 0.1 In ra số ngày trong tháng
 
@@ -581,14 +581,11 @@ int tachChuoiThanhMangTu(const char *str, char arr[][50]) {
 }
 // 25.12 Nhập vào 1 chuỗi kí tự
 void inputString(char s[]) {
-    printf("Enter a string (max 100 characters): ");
     fgets(s, 101, stdin);
     if (s[strlen(s) - 1] == '\n') {
         s[strlen(s) - 1] = '\0';
     }
 }
-
-
 
 // 26.1 Chuyển tất cả sang chữ hoa
 void chuyenDoiChuHoa(char *str) {
@@ -1229,8 +1226,16 @@ void inputArray(int arr[], int n) {
         scanf("%d", &arr[i]);
     }
 }
-
-
+//33.13 Check trùng lặp trong arr
+int check_dup(int arr[], int n, int index) {
+	int current_num = arr[index];
+	for(int i = index+1; i < n; i++) {
+		if(current_num == arr[i]) {
+			return 1;
+		}
+	}
+	return 0;
+}
 
 // 34.1 Tìm kiếm tuyến tính
 int linearSearch(int arr[], int n, int key) {
@@ -1389,6 +1394,7 @@ void veHinhVuong(int n) {
 //*  		*
 //*  		*
 //* * * * * *
+
 void veHinhVuong (int n) {
 	int i,j;
 	for (i= 0; i<n; i++) {
@@ -1473,7 +1479,7 @@ void veTamGiac(int n) {
 // ****
 //*****
      
-void veTamGiac (int n) {
+void veTamGiac() (int n) {
 	int i,j;
 	for (i=0; i<n; i++) {
 		for (j=0; j<n-i-1; j++) {
@@ -1495,7 +1501,7 @@ void veTamGiac (int n) {
 //  * * * * * *
 // * * * * * * *
 //* * * * * * * *
-void tamGiacCan_1 {
+void tamGiacCan_1() {
     int i, space, rows, k = 0;
     scanf("%d", &rows);
 
@@ -1518,7 +1524,7 @@ void tamGiacCan_1 {
 //    *
 
 
-void tamGiacCan_2  {
+void tamGiacCan_2()  {
     int rows, i, j, space;
     scanf("%d", &rows);
 
@@ -1543,7 +1549,7 @@ void tamGiacCan_2  {
 //7 8 9 10
 //11 12 13 14 15
 
-void tamGiacSo {
+void tamGiacSo() {
     int rows, i, j, number = 1;
     scanf("%d", &rows);
 	printf("OUTPUT:\n");
@@ -1564,7 +1570,7 @@ void tamGiacSo {
 //1 2 3 4 5 
 //1 2 3 4 5 6
 
-void tamGiacso_2{
+void tamGiacso_2(){
     int i, j, row;
     scanf("%d", &row);
     printf("OUTPUT:\n");
@@ -1638,7 +1644,7 @@ void hinhBinhHanh {
 
 
 
-void veNgoiNha {
+void veNgoiNha() {
     int i, j, space, rows = 8, star = 0;
     for (i = 0; i < rows; i++)
     {
@@ -1681,7 +1687,7 @@ void veNgoiNha {
 //      *
 //      
 //      
-void veHinhThoi {
+void veHinhThoi() {
 	int n;
 	scanf("%d", &n);
 	printf("OUTPUT:\n");
@@ -1725,7 +1731,7 @@ void veHinhThoi {
 //******
 
 
-void veTamGiacRong {
+void veTamGiacRong() {
     int i, j, n;
     scanf("%d", &n);
 	printf("OUTPUT:\n");
@@ -1747,7 +1753,7 @@ void veTamGiacRong {
 //D E F
 //G H I J
 
-void printAlphabetPyramid(int rows) {
+void printAlphabetPyramid()(int rows) {
     char ch = 'A';
     for (int i = 1; i <= rows; i++) {
         for (int j = 1; j <= i; j++) {
