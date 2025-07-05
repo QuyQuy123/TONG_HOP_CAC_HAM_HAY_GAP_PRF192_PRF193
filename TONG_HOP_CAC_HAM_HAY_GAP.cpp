@@ -200,24 +200,25 @@
 	    34.7. countPositive      => Đếm số phần tử dương.
 	    4.8. countNegative      => Đếm số phần tử âm.
 	35. VẼ HÌNH 
-		35.1 veHinhVuong1 =>  Vẽ hình vuông
-		35.2 veHinhVuong => Vẽ hình vuông bị rỗng dưới
-		35.3 veHinhVuong => Vẽ hình vuông bị rỗng trên
-		35.4 veHinhVuong => Vẽ hình vuông bị rỗng giữa
-		35.5 veTamGiac  => Vẽ Tam giác
-		35.6 veTamGiac = > Vẽ Tam giác ngược 1
-		35.7 veTamGiac => Vẽ Tam giác ngược 2
-		35.8 veTamGiac => Vẽ Tam giác ngược 3
-		35.9 tamGiacCan_1 = > Vẽ Tam giác cân 1
-		35.10 tamGiacCan_2  => Vẽ Tam giác cân 2
-		35.11 tamGiacSo  => Vẽ Tam giác số 1
-		35.12 tamGiacso_2 => Vẽ Tam giác số 2
+		35.1 veHinhVuong1       =>  Vẽ hình vuông
+		35.2 veHinhVuong        => Vẽ hình vuông bị rỗng dưới
+		35.3 veHinhVuong        => Vẽ hình vuông bị rỗng trên
+		35.4 veHinhVuong        => Vẽ hình vuông bị rỗng giữa
+		35.5 veTamGiac          => Vẽ Tam giác
+		35.6 veTamGiac          = > Vẽ Tam giác ngược 1
+		35.7 veTamGiac          => Vẽ Tam giác ngược 2
+		35.8 veTamGiac          => Vẽ Tam giác ngược 3
+		35.9 tamGiacCan_1       = > Vẽ Tam giác cân 1
+		35.10 tamGiacCan_2      => Vẽ Tam giác cân 2
+		35.11 tamGiacSo         => Vẽ Tam giác số 1
+		35.12 tamGiacso_2       => Vẽ Tam giác số 2
 		35.13 tamGiacChuDoiXung => Vẽ Tam giác chữ đối xứng
-		35.14 hinhBinhHanh  => Vẽ hình bình hành
-		35.15 veNgoiNha  => Vẽ ngôi nhà
-		35.16 veHinhThoi   => Vẽ hình thoi
-		35.17 veTamGiacRong  => Vẽ tam giác rỗng
-		35.18 printAlphabetPyramid=>  Vẽ tam giác chữ cái
+		35.14 hinhBinhHanh      => Vẽ hình bình hành
+		35.15 veNgoiNha         => Vẽ ngôi nhà
+		35.16 veHinhThoi        => Vẽ hình thoi
+		35.17 veTamGiacRong     => Vẽ tam giác rỗng
+		35.17.1 veTamGiacRong    => Vẽ tam giác rỗng_2
+		35.18 printAlphabetPyramid     =>  Vẽ tam giác chữ cái
 
 */
 
@@ -1745,6 +1746,27 @@ void veTamGiacRong() {
         printf("\n");
     }
 
+}
+
+// 35.17.1 Vẽ tam giác rỗng_2  
+//    *
+//   **
+//  * *
+// *  *
+//*****
+void veTamGiacRong() {
+    int i, j, n;
+    scanf("%d", &n);
+	printf("OUTPUT:\n");
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            if (i == 1 || j == 1|| j == n -i +1)
+                printf("*");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
 }
 // 35.18  Vẽ tam giác chữ cái
 
